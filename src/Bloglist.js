@@ -1,10 +1,10 @@
-const Bloglist = ({ blogs }) => {
+const BlogList = ({ blogs }) => {
     return (
         <div className="bloglist">
             {blogs.map((blog) => (
                 <div className="blog-preview" key={blog.id}>
                     <h2>{blog.title}</h2>
-                    <p>{blog.body}</p>
+                    <p>{blog.author}</p>
                 </div>
             ))}
         </div>
@@ -12,4 +12,4 @@ const Bloglist = ({ blogs }) => {
 }
 
 
-export default Bloglist;
+export default BlogList;
