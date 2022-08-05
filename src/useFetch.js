@@ -6,6 +6,8 @@ const useFetch = (url) => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
+        const abortCont = new AbortController();
+
         setTimeout(() => {
             fetch(url)
                 .then(res => {
@@ -25,6 +27,8 @@ const useFetch = (url) => {
                     setError(err.message);
                 })
         }, 1000);
+        // abort the fetch
+        return () => abortCont.abort();
     }, [url])
 
     return { data, isPending, error };
